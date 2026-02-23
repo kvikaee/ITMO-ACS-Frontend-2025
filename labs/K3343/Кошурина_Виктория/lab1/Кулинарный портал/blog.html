@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог кулинара</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🍏 Рецепты</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="search.html">Поиск</a></li>
+                    <li class="nav-item"><a class="nav-link" href="authors.html">Кулинары</a></li>
+                </ul>
+                <div class="d-flex" id="authButtons"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="images\avatars\default.jpg" alt="avatar" class="rounded-circle mb-3" width="120" height="120" id="bloggerAvatar">
+                        <h3 id="bloggerName">Имя блогера</h3>
+                        <p id="bloggerBio">Описаниe</p>
+                        <p>Подписчиков: <span id="bloggerFollowers">0</span></p>
+                        <button class="btn btn-primary" id="subscribeBtn">Подписаться</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h4>Рецепты блогера</h4>
+                <div class="row" id="bloggerRecipes"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2025 Кулинарный портал</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/recipes-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
