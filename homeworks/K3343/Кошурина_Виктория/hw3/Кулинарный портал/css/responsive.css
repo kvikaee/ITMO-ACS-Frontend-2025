@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    #profileTabs {
+        margin-top: 20px;
+    }
+}

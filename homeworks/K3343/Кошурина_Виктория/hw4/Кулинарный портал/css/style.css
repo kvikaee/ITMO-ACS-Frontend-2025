@@ -1,0 +1,347 @@
+/* style.css */
+/* ========== CSS-переменные для светлой темы (по умолчанию) ========== */
+:root {
+    --bg-body: #e6f3e6;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --primary-color: #2E7D32;
+    --primary-hover: #1B5E20;
+    --primary-border: #1B5E20;
+    --outline-primary: #2E7D32;
+    --outline-primary-hover: #fff;
+    --link-color: #0a58ca;
+    --navbar-bg: #f8f9fa;
+    --navbar-text: #212529;
+    --footer-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    --danger-color: #b02a37;
+    --danger-hover: #b02a37;
+    --comment-date-color: #999;
+    --input-bg: #ffffff;
+    --input-text: #212529;
+    --input-border: #ced4da;
+    --avatar-border: #ffffff;
+    --btn-close-filter: none; /* Добавлено для кнопки закрытия модального окна */
+}
+
+/* ========== Тёмная тема ========== */
+.dark-theme {
+    --bg-body: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2d2d2d;
+    --card-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+    --primary-color: #4caf50;
+    --primary-hover: #66bb6a;
+    --primary-border: #2E7D32;
+    --outline-primary: #4caf50;
+    --outline-primary-hover: #fff;
+    --link-color: #bb86fc;
+    --navbar-bg: #2d2d2d;
+    --navbar-text: #f0f0f0;
+    --footer-bg: #2d2d2d;
+    --border-color: #404040;
+    --danger-color: #cf6679;
+    --danger-hover: #d32f2f;
+    --comment-date-color: #aaa;
+    --input-bg: #3a3a3a;
+    --input-text: #f0f0f0;
+    --input-border: #555;
+    --avatar-border: #2d2d2d;
+    --btn-close-filter: invert(1) grayscale(100%) brightness(200%); /* Для кнопки закрытия в тёмной теме */
+}
+
+/* ========== Основные стили ========== */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main.container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: var(--footer-bg) !important;
+}
+
+/* ========== Навигация ========== */
+.navbar.bg-light {
+    background-color: var(--navbar-bg) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--navbar-text) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--navbar-text) !important;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: var(--border-color);
+}
+
+/* ========== Карточки ========== */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .card:hover {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.recipe-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: calc(0.375rem - 1px);
+    border-top-right-radius: calc(0.375rem - 1px);
+}
+
+.recipe-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.recipe-card .card-text {
+    flex: 1;
+}
+
+.recipe-card .btn {
+    margin-top: auto;
+}
+
+/* ========== Аватарки ========== */
+.rounded-circle {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid var(--avatar-border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    width: 120px;
+    height: 120px;
+}
+
+/* Маленькие аватарки */
+.avatar-small,
+.card .d-flex .rounded-circle {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+}
+
+/* Специально для аватарок в profile (если есть контейнер #profileInfo) */
+#profileInfo img {
+    border: 3px solid var(--bg-body);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Кнопки ========== */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-border) !important;
+    color: #fff !important;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-border) !important;
+}
+
+.btn-outline-primary {
+    color: var(--outline-primary) !important;
+    border-color: var(--outline-primary) !important;
+    background-color: transparent !important;
+}
+.btn-outline-primary:hover {
+    background-color: var(--outline-primary) !important;
+    border-color: var(--outline-primary) !important;
+    color: var(--outline-primary-hover) !important;
+}
+
+.btn-outline-danger {
+    color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+}
+.btn-outline-danger:hover {
+    background-color: var(--danger-hover) !important;
+    border-color: var(--danger-hover) !important;
+    color: #fff !important;
+}
+
+/* ========== Кнопка закрытия модального окна ========== */
+.btn-close {
+    filter: var(--btn-close-filter);
+}
+
+/* ========== Ссылки ========== */
+a {
+    color: var(--link-color);
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--link-color);
+    filter: brightness(0.8);
+}
+
+/* Ссылки в подвалах и навбарах наследуют цвет текста */
+.navbar a, footer a {
+    color: var(--navbar-text);
+}
+
+/* ========== Формы ========== */
+.form-control,
+.form-select {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--input-border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.form-check-input {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+}
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-border);
+}
+
+/* ========== Комментарии ========== */
+.comment {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    margin-bottom: 5px;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--text-color);
+}
+
+.comment-date {
+    color: var(--comment-date-color);
+    font-size: 0.85rem;
+}
+
+/* ========== Вкладки ========== */
+.nav-tabs {
+    border-bottom-color: var(--border-color);
+}
+.nav-tabs .nav-link {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+    color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
+    background-color: transparent;
+}
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+    isolation: isolate;
+}
+
+/* ========== Переключатель темы ========== */
+#themeSwitcher {
+    background: transparent;
+    border-color: var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+}
+#themeSwitcher:hover {
+    background-color: var(--border-color);
+}
+
+/* ========== Адаптивность (интегрировано из responsive.css) ========== */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: start;
+    }
+    .card {
+        margin-bottom: 15px;
+    }
+    #profileTabs {
+        margin-top: 20px;
+    }
+    .rounded-circle {
+        width: 80px;
+        height: 80px;
+    }
+    .avatar-small,
+    .card .d-flex .rounded-circle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ========== Дополнительные утилиты ========== */
+.text-muted {
+    color: var(--comment-date-color) !important;
+}
+
+.bg-light {
+    background-color: var(--navbar-bg) !important;
+}
+
+footer p {
+    color: var(--text-color);
+}
+
+/* Стили для модальных окон */
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+.modal-header,
+.modal-footer {
+    border-color: var(--border-color);
+}
